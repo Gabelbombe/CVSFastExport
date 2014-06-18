@@ -1,0 +1,31 @@
+= README for cvs-fast-export =
+
+This program analyzes a collection of RCS files in a CVS repository
+(or outside of one) and, when possible, emits an equivalent history in
+the form of a fast-import stream.  Not all possible histories can be
+rendered this way; the program tries to emit useful warnings when it
+can't.  The program can also produce a visualization of the resulting
+commit DAG in the DOT format handled by the graphviz suite.
+
+This program could have been called rcs-fast-export with equal
+appropriateness; the cvs-fast-export name was chosen to avoid
+colliding with a pre-existing script with that name by Giuseppe
+Bilotta.
+
+The analysis stage of this code originally travelled as "parsecvs" 
+and was written by Keith Packard in early 2006.  It was briefly 
+maintained by Bart Massey before passing to Eric S. Raymond in 
+late 2012; ESR wrote the fast-export output stage and renamed the
+program to reflect its new function. Alan Barrett wrote the 
+improved progress meter.
+
+The distribution includes a tool, cvssync, for fetching masters from
+CVS remote repositories so cvs-fast-export can see them.  You will
+need rsync installed to use it.
+
+This code has a regression-test suite; invoke it with "make check".
+You will need RCS and SCCS installed to run the tests, but they're 
+not required for production use of cvs-fast-export.
+
+See also the NEWS and TODO files.
+
